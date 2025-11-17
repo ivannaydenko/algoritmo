@@ -1,0 +1,24 @@
+from db_utils import conectar
+
+def seleccionar_todos_los_libros():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM libros ORDER BY titulo")
+    resultado = cursor.fetchall()
+    cursor.close()
+    conexion.close()
+    return resultado
+
+def buscar_libro_por_titulo(titulo):
+    libros = seleccionar_todos_los_libros()
+    inicio, fin = 0, len(libros) - 1
+    while inicio <= fin:
+        medio = (inicio + fin) // 2
+        titulo_medio = libros[medio][1]
+        if titulo_medio == titulo:
+            return libros[medio]
+        elif titulo_medio < titulo:
+            inicio = medio + 1
+        else:
+            fin = medio - 1
+    return None
