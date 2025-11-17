@@ -1,0 +1,90 @@
+# GLHF - Diez Posibles Implementaciones Comerciales del Sistema Biblioteca
+
+## Integrantes del grupo: GLHF
+
+### 1. Control de Préstamos y Devoluciones
+Registrar préstamos y devoluciones, controlando fechas y usuarios.
+
+### 2. Sistema de Reservas Online
+Permitir a los usuarios reservar libros desde internet.
+
+### 3. Generación de Informes para Administración (PDF/Excel)
+Producir listados y estadísticas en formatos descargables.
+
+### 4. Registro y Gestión de Usuarios
+Registrar usuarios con diferentes roles y niveles de acceso (administrador/bibliotecario/lector).
+
+### 5. Sistema de Notificaciones por Email/SMS
+Avisos de vencimientos, reservas o novedades.
+
+### 6. Catálogo Web Público
+Mostrar el inventario en una web para búsqueda e información pública.
+
+### 7. Integración con un Sistema de Pago
+Cobro de multas por retraso o matrícula para socios premium.
+
+### 8. API REST para integración con apps móviles
+Exponer servicios para integrarse con apps de terceros.
+
+### 9. Panel Administrativo con Estadísticas
+Dashboards gráficos para visualizar actividad y KPIs.
+
+### 10. Implementación de un Sistema de Recomendaciones
+Utilizar algoritmos para sugerir libros a los usuarios según gustos y préstamos previos.
+
+---
+
+## IMPLEMENTACIONES REALIZADAS
+
+A continuación, se implementan cuatro de las propuestas comerciales mencionadas:
+
+### 1. Control de Préstamos y Devoluciones
+
+#### Estructura de tablas recomendada en MySQL:
+```sql
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE prestamos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_libro INT NOT NULL,
+    fecha_prestamo DATE NOT NULL,
+    fecha_devolucion DATE,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+    FOREIGN KEY (id_libro) REFERENCES libros(id_libro)
+);
+```
+#### Nuevo Archivo: `prestamos.py`
+Implementa funciones para registrar préstamos, devoluciones y consultar historial por usuario o libro.
+
+---
+
+### 2. Registro y Gestión de Usuarios
+
+#### Nuevo Archivo: `usuarios.py`
+Permite agregar, editar o eliminar usuarios, además de listar todos los usuarios y validar existencia por email.
+
+---
+
+### 3. Generación de Informes para Administración (PDF/Excel)
+
+#### Nuevo Archivo: `informes.py`
+Utiliza librerías como `openpyxl` o `reportlab` para generar informes en PDF/Excel de libros y préstamos.
+
+---
+
+### 4. Sistema de Notificaciones por Email
+
+#### Nuevo Archivo: `notificaciones.py`
+Utiliza librerías como `smtplib` para enviar avisos por email a usuarios sobre vencimientos de plazo o novedades.
+
+---
+
+**NOTA:**  
+Cada implementación está en su archivo correspondiente y lista para ser llamada/integrada desde la interfaz principal si se desea.
+
+**GLHF**

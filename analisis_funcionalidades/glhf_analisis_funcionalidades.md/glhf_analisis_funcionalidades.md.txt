@@ -1,0 +1,30 @@
+# GLHF - Análisis Actual de Funcionalidades del Proyecto Biblioteca
+
+## Integrantes del grupo: GLHF
+
+## Funcionalidades Implementadas
+
+- **Conexión a Base de Datos (MySQL):** Se utiliza una base de datos `biblioteca` para almacenar datos de libros.
+- **Agregar Libros:** Inserta nuevos libros con datos como título, autor, género, fecha de publicación, cantidad y calificación.
+- **Eliminar Libros:** Permite borrar libros de la base por su ID.
+- **Buscar Libro por Título:** Busca libros utilizando búsqueda binaria aprovechando el orden por título.
+- **Mostrar Libros Populares:** Lista aquellos libros cuya calificación es igual o mayor a 4, ordenados por calificación.
+- **Mostrar Todos los Libros:** Muestra todos los registros de libros en la base de datos.
+- **Libro Más Antiguo:** Presenta el libro con la fecha de publicación más baja.
+- **Interfaz Gráfica (Tkinter):** Cuenta con botones para cada función, tablas para mostrar información y ventanas modales para agregar, eliminar o buscar libros.
+- **Código Modular:** Cada función/familia está separada en distintos archivos para un mantenimiento y escalabilidad más sencilla.
+- **Manejo de Errores y Notificaciones:** Uso de `messagebox` para informar de éxitos y fallos.
+- **Documentación Inicial Existente** (añadir si hay otros documentos, instrucciones, etc.)
+
+## Arquitectura
+
+El sistema se distribuye en varios módulos que se comunican a través de importaciones Python, y una interfaz principal orquesta todas las acciones y la interacción con el usuario.
+
+---
+
+**Observaciones y Áreas de Mejora**
+- Falta autenticación de usuarios o permisos para ciertas acciones.
+- No hay registro de préstamos/devoluciones de libros.
+- No existen reportes estadísticos.
+- No hay exportación a formatos externos (PDF, Excel).
+- No se ha implementado una API para acceso externo.
