@@ -1,0 +1,48 @@
+import tkinter as tk
+from db_utils import conectar
+
+def libro_mas_antiguo():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM libros ORDER BY publicacion ASC LIMIT 1")
+    libro = cursor.fetchone()
+    cursor.close()
+    conexion.close()
+    return libro
+
+def ventana_libro_mas_antiguo(parent):
+    win = tk.Toplevel(parent)
+    win.title("📘 Libro Más Antiguo")
+    win.geometry("450x350")
+    win.configure(bg="#e8f0ff")
+
+    libro = libro_mas_antiguo()
+
+    if libro is None:
+        tk.Label(win, text="No hay libros en la base de datos.",
+                 font=("Arial", 14, "bold"), bg="#e8f0ff").pack(pady=40)
+        return
+
+    frame = tk.Frame(win, bg="white", bd=3, relief="groove")
+    frame.pack(pady=25, padx=25, fill="both", expand=True)
+
+    tk.Label(frame, text="📚 Libro Más Antiguo",
+             font=("Arial", 16, "bold"), bg="white").pack(pady=10)
+
+    tk.Frame(frame, bg="#aac4ff", height=2).pack(fill="x", pady=5)
+
+    info_text = (
+        f"📖 Título: {libro[1]}\n"
+        f"✍ Autor: {libro[2]}\n"
+        f"🏷 Género: {libro[3]}\n"
+        f"📅 Publicado en: {libro[4]}\n"
+        f"📦 Disponible: {libro[5]}\n"
+        f"⭐ Calificación: {libro[6]}"
+    )
+
+    tk.Label(frame, text=info_text, font=("Arial", 12),
+             justify="left", bg="white").pack(pady=10)
+
+    tk.Button(win, text="Cerrar", font=("Arial", 12, "bold"),
+              bg="#aac4ff", fg="black", width=12,
+              command=win.destroy).pack(pady=10)
