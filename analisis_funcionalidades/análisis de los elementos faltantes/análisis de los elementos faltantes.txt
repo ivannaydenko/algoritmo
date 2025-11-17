@@ -1,0 +1,95 @@
+# GLHF - Análisis de Elementos Faltantes para la Comercialización del Sistema Biblioteca
+
+## Integrantes del grupo: GLHF
+
+## Introducción
+
+El presente documento evalúa los elementos que actualmente no están cubiertos en el sistema de gestión de biblioteca y que son esenciales para su comercialización eficiente y profesional en un entorno real.
+
+---
+
+## 1. Seguridad y Autenticación
+
+- **Faltante:** Autenticación de usuarios y control de acceso basado en roles (administrador, bibliotecario, usuario común).
+- **Impacto:** Sin esta capa, cualquier persona con acceso a la IU puede modificar, eliminar o consultar datos sensibles.
+- **Recomendación:** Implementar login, hashing de contraseñas y autorización por perfiles.
+
+---
+
+## 2. Interfaz de Usuario Amigable
+
+- **Faltante:** Una interfaz moderna, responsiva y fácil de usar. Uso mínimo de diseño visual avanzado.
+- **Impacto:** Un diseño visualmente poco atractivo y poco intuitivo dificulta su adopción y aceptación comercial.
+- **Recomendación:** Mejorar el UX/UI, considerar migrar la interfaz a web (Django/Flask/React).
+
+---
+
+## 3. Manuales y Documentación de Usuario/Admin
+
+- **Faltante:** Manual de usuario final, documentación técnica de instalación y guías para despliegue/soporte.
+- **Impacto:** Reduce la autogestión y el soporte posventa, limitando el escalamiento del producto.
+- **Recomendación:** Escribir manuales y documentación técnica exhaustiva.
+
+---
+
+## 4. Reportes y Estadísticas
+
+- **Faltante:** Panel de reportes avanzados (gráficos, tableros de seguimiento, exportación directa).
+- **Impacto:** Las bibliotecas y empresas requieren estadísticas para toma de decisiones y rendición de cuentas.
+- **Recomendación:** Integrar librerías de reporte en PDF/Excel y dashboards interactivos.
+
+---
+
+## 5. Notificaciones y Comunicaciones
+
+- **Faltante:** Sistema de notificaciones automático por email/SMS para avisos de reservas, vencimientos, etc.
+- **Impacto:** Reduce la interacción proactiva con los usuarios.
+- **Recomendación:** Integrar servicios SMTP, SMS API y sistema de plantillas de comunicación.
+
+---
+
+## 6. Módulo Web/App para Usuarios Externos
+
+- **Faltante:** Acceso remoto (vía web/app móvil) para usuarios, con funciones de búsqueda, reserva y consulta de préstamos.
+- **Impacto:** Limita el uso a una localización y a usuarios internos.
+- **Recomendación:** API RESTful y front-end web/app.
+
+---
+
+## 7. Licenciamiento y Protección del Software
+
+- **Faltante:** Estrategia de licenciamiento, protección de código, y gestión de claves/seriales comerciales.
+- **Impacto:** Riesgo de copia/distribución no autorizada.
+- **Recomendación:** Incluir módulos de control de licencia y uso autorizado.
+
+---
+
+## 8. Respaldos y Recuperación de Datos
+
+- **Faltante:** Mecanismo de backup y restore integrado.
+- **Impacto:** Riesgo de pérdida de información por fallos de hardware o errores humanos.
+- **Recomendación:** Subsistema de backups automáticos, manuales y restauración fácil.
+
+---
+
+## 9. Cumplimiento Legal y Normativo
+
+- **Faltante:** Términos de uso, política de privacidad y manejo de datos de usuarios sensibles conforme al marco legal local/internacional (ej. GDPR).
+- **Impacto:** Impide su uso en instituciones reguladas.
+- **Recomendación:** Incorporar avisos legales y herramientas de gestión de consentimiento de usuarios.
+
+---
+
+## 10. Soporte Multilenguaje y Moneda
+
+- **Faltante:** Adaptabilidad a diferentes idiomas y monedas para mercados internacionales.
+- **Impacto:** El alcance del sistema se limita a un solo mercado.
+- **Recomendación:** Internacionalizar la aplicación (i18n) y soportar múltiples configuraciones geográficas.
+
+---
+
+### CONCLUSIÓN
+
+El sistema cumple varias funciones nucleares, pero requiere estos elementos para ser competitivo y comercializable en el mercado profesional de software de gestión bibliotecaria.
+
+**GLHF**
