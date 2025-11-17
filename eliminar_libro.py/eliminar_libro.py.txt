@@ -1,0 +1,14 @@
+from tkinter import messagebox
+from db_utils import conectar
+
+def eliminar_libro(id_libro):
+    try:
+        conexion = conectar()
+        cursor = conexion.cursor()
+        cursor.execute("DELETE FROM libros WHERE id_libro = %s", (id_libro,))
+        conexion.commit()
+        cursor.close()
+        conexion.close()
+        messagebox.showinfo("Eliminado", "Libro eliminado correctamente.")
+    except Exception as e:
+        messagebox.showerror("Error", f"No se pudo eliminar el libro.\n{e}")
