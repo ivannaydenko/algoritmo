@@ -1,0 +1,10 @@
+from db_utils import conectar
+
+def consultar_libros_mas_populares():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT titulo, calificacion FROM libros WHERE calificacion >= 4 ORDER BY calificacion DESC")
+    resultado = cursor.fetchall()
+    cursor.close()
+    conexion.close()
+    return resultado
