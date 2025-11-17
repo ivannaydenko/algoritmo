@@ -1,0 +1,16 @@
+from tkinter import messagebox
+from db_utils import conectar
+
+def agregar_libro(titulo, autor, genero, publicacion, cantidad_disponible, calificacion):
+    try:
+        conexion = conectar()
+        cursor = conexion.cursor()
+        SQL = "INSERT INTO libros (titulo, autor, genero, publicacion, cantidad_disponible, calificacion) VALUES (%s, %s, %s, %s, %s, %s)"
+        valores = (titulo, autor, genero, publicacion, cantidad_disponible, calificacion)
+        cursor.execute(SQL, valores)
+        conexion.commit()
+        cursor.close()
+        conexion.close()
+        messagebox.showinfo("Éxito", "Libro agregado correctamente.")
+    except Exception as e:
+        messagebox.showerror("Error", f"No se pudo agregar el libro.\n{e}")
