@@ -1,0 +1,10 @@
+from db_utils import conectar
+
+def seleccionar_todos_los_libros():
+    conexion = conectar()
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM libros ORDER BY titulo")
+    resultado = cursor.fetchall()
+    cursor.close()
+    conexion.close()
+    return resultado
